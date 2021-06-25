@@ -44,7 +44,8 @@ Content-Type: application/json
 
     "temperatures": "High 25"
 
-} ```
+}
+```
 
  - [Postman] (https://www.postman.com/downloads/) can be used to upload a csv file of new datasets which creates new records or updates existing records in the database.
 
