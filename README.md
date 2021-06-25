@@ -2,9 +2,9 @@
 WinCast is an application for visualizing the historical forecasts of the weather conditions in Winnipeg, Manitoba.
 
 The application is split into three main parts:
-1. A FrontEnd: An Angular web application that queries the rest API backend server by date and displays the data that returns from the server call
-2. A BackEnd: A Node-Express server which connects to a PostgreSQL database server and services the client-side requests.
-3. A PostgreSql database: A local PostgreSQl instance that stores the weather forecasts.
+1. A FrontEnd: an Angular web application that queries the rest API backend server by date and displays the data that returns from the server call
+2. A BackEnd: an Express server which connects to a PostgreSQL database server and services the client-side requests.
+3. A PostgreSql database: a local PostgreSQl instance that stores the weather forecasts.
 
 
 ## Dependencies
@@ -20,3 +20,19 @@ The application is split into three main parts:
 - [Multer](https://www.npmjs.com/search?q=multer): Middleware for handling forms and tables.
 
 - [Nodemon](https://www.npmjs.com/package/nodemon): Nodemon is a tool that automatically restarts a Node.js application when file changes are detected.
+
+## Installation
+
+- Clone the source code for the application at https://github.com/Emmanuel289/WinCast.git.
+
+- Navigate to the ```backend/ ``` folder within the folder tree and execute ``` npm install && npm start ``` to install the dependencies for the backend and start the backend service.
+
+- Navigate to the ``` frontend/``` folder and execute ``` npm install && ng serve --open ``` to install the dependencies for the web application and start the frontend service.
+
+- Start a postgres client using the ```psql ``` startup shell and connect to the database (Optional). 
+
+
+### Querying the Weather Database for Forecasts
+ - The 'weekly_forecast' file that is located inside the `backend/models/` folder contains the schema for defining and composing a weekly forecast into a table for storage in the database. 
+ - The 'routes.rest' file contains a list of standard HTTP methods for querying the local server which forwards the requests to the database. 
+ - [Postman] (https://www.postman.com/downloads/) can be used to upload a csv file of new datasets which creates new records or update existing records in the database. 
