@@ -52,4 +52,5 @@ Content-Type: application/json
 
 ### Design Considerations and Future Iterations:
 
-- An SQL engine was the choice of the database service because the weather 
+- An SQL engine was the choice of the database service because the weather forecasts are contained in tables and we might want to persist their storage.
+- The UI of the application is a skeleton in its present form and does not do much. It will be updated with presentation logic in the future.
