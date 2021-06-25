@@ -33,6 +33,22 @@ The application is split into three main parts:
 
 
 ### Querying the Weather Database for Forecasts
- - The 'weekly_forecast' file that is located inside the `backend/models/` folder contains the schema for defining and composing a weekly forecast into a table for storage in the database. 
- - The 'routes.rest' file contains a list of standard HTTP methods for querying the local server which forwards the requests to the database. 
- - [Postman] (https://www.postman.com/downloads/) can be used to upload a csv file of new datasets which creates new records or update existing records in the database. 
+ - The `weekly_forecast.js` located inside the `backend/models/` folder contains the schema for defining and composing a weekly forecast into a table for storage in the database. 
+ - The 'routes.rest' file contains a list of standard HTTP methods for querying the local server which forwards the requests to the database. For example, the following request adds a new record to the data set
+ 
+ ``` POST http://localhost:8000/api/v0/forecasts 
+Content-Type: application/json
+
+{
+    "date_time_local": 2024,
+
+    "temperatures": "High 25"
+
+} ```
+
+ - [Postman] (https://www.postman.com/downloads/) can be used to upload a csv file of new datasets which creates new records or updates existing records in the database.
+
+
+### Design Considerations and Future Iterations:
+
+- An SQL engine was the choice of the database service because the weather 
