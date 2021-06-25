@@ -47,7 +47,7 @@ Content-Type: application/json
 }
 ```
 
- - [Postman] (https://www.postman.com/downloads/) can be used to upload a csv file of new datasets which creates new records or updates existing records in the database.
+ - [Postman](https://www.postman.com/downloads/) can be used to upload a csv file of new datasets which creates new records or updates existing records in the database.
 
 
 ### Design Considerations and Future Iterations:
