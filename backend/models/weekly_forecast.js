@@ -23,6 +23,7 @@ WeeklyForecast.init({
 
   period_string:{
       type: DataTypes.STRING
+
   },
 
   
@@ -35,6 +36,7 @@ WeeklyForecast.init({
   snowlevel:{
 
     type: DataTypes.STRING
+
   },
 
   visibility_wind:{
@@ -45,6 +47,7 @@ WeeklyForecast.init({
   visibility_other:{
 
     type: DataTypes.STRING
+
   },
 
 
@@ -52,47 +55,49 @@ WeeklyForecast.init({
   precipitation:{
 
     type: DataTypes.STRING
+  
   },
 
   winds:{
 
     type: DataTypes.STRING
+    
   },
 
 
   temperatures:{
 
-    type: DataTypes.STRING
+    type: DataTypes.STRING,
+    allowNull : false
+  
   },
 
 
   windchill:{
 
-    type: DataTypes.STRING
+    type: DataTypes.STRING,
+    
   },
 
   humidex:{
 
-    type: DataTypes.STRING
+    type: DataTypes.STRING,
+    
   },
 
   uv:{
 
-    type: DataTypes.STRING
+    type: DataTypes.STRING,
+    
   },
 
   cloudPrecip: {
     type: DataTypes.STRING,
-    allowNull: false
-  },
-  temperature: {
-    type: DataTypes.STRING
-    // allowNull defaults to true
   }
 }, {
-  // Other model options go here
-  sequelize, // We need to pass the connection instance
-  modelName: 'WeeklyForecast' // We need to choose the model name
+  
+  sequelize, 
+  modelName: 'WeeklyForecast' 
 });
 
 module.exports = WeeklyForecast;
