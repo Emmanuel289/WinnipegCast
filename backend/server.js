@@ -1,24 +1,29 @@
-// Import all modules and dependencies for server and database
+// Import all modules and middleware for server
 require('dotenv').config();
 const express = require('express');
 const sequelize = require('./sequelize');
+const iRoutes = require("./routes/forecasts.routes");
+
 const WeeklyForecast = require('./models/weekly_forecast');
+
+global.__basedir = __dirname + "/..";
 
 const app = express();
 
-const port = 8000;
-
+// Use middleware in request/response cycle
 
 app.use(express.json())
 
+app.use(express.urlencoded({ extended: true }));
+iRoutes(app);
+
+const port = process.env.PORT || 8000;
 
 
 
 //Add the weekly forecast data model and connect to postgres database
 
  WeeklyForecast.sync({ force: true })
-
-
 try{
 
     sequelize.authenticate();
@@ -28,10 +33,10 @@ try{
 
     console.error('Unable to connect to the database:',error);
 }
- 
-//Create a new weekly forecast record
 
-app.post('/forecasts', 
+/*Create a new weekly forecast
+
+app.post('/api/csv/forecasts', 
     async (req, res) => {
     let currDate = req.body.date_time_local
     let forecastTemps   = req.body.temperatures;
@@ -57,21 +62,7 @@ app.post('/forecasts',
 
     res.status(201).send(saved_forecast);
 });
-
-
-
-// Get all weekly forecasts
-
-app.get('/forecasts/', async   (req, res) => {
-
-    const weekly_forecasts = await WeeklyForecast.findAll();
-
-    res.send(weekly_forecasts);
-
-    
-  });
-
-
+*/
 
 //Listen for connections
 app.listen(port, () => {

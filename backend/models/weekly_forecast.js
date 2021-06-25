@@ -1,5 +1,4 @@
-
-// Import a table's attributes
+// Model a table's schema with sequelize
 const {DataTypes, Model } = require('sequelize');
 const sequelize = require('../sequelize');
 

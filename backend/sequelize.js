@@ -7,7 +7,7 @@ const config = require('./config');
 
 const c = config;
 
-// Instantiate new Sequelize instance
+
 const sequelize = new Sequelize({
   "username": c.username,
   "password": c.password,
