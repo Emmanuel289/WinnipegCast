@@ -34,9 +34,9 @@ try{
     console.error('Unable to connect to the database:',error);
 }
 
-/*Create a new weekly forecast
+//Create a new weekly forecast
 
-app.post('/api/csv/forecasts', 
+app.post('/api/v0/forecasts', 
     async (req, res) => {
     let currDate = req.body.date_time_local
     let forecastTemps   = req.body.temperatures;
@@ -62,7 +62,15 @@ app.post('/api/csv/forecasts',
 
     res.status(201).send(saved_forecast);
 });
-*/
+
+
+// 
+
+//Test root endpoint
+app.get('/', (req, res)=>{
+
+    res.send('Hello!')
+})
 
 //Listen for connections
 app.listen(port, () => {

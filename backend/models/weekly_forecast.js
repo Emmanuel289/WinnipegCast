@@ -9,7 +9,7 @@ WeeklyForecast.init({
  
 
   date_time_local: {
-    type: DataTypes.STRING,
+    type: DataTypes.INTEGER,
     allowNull: false
   },
 

@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const CsvHandler = require("../controllers/csv-handler");
+const getRouter = require("../controllers/get-handler");
 const upload = require("../middleware/upload");
 
 let routes = (app) => {
@@ -11,10 +12,14 @@ let routes = (app) => {
     //Get all existing datasets
     
     router.get('/forecasts', CsvHandler.getForecasts);
+
+    //Get a day's forecast
+
+    router.get('/forecast/', getRouter );
     
     //Use router middleware in server
     
-    app.use("/api/csv", router);
+    app.use('/api/v0', router);
 };
 
 module.exports = routes;

@@ -1,0 +1,27 @@
+GET http://localhost:8000
+
+###
+POST http://localhost:8000/api/v0/forecasts 
+Content-Type: application/json
+
+{
+    "date_time_local": 2023,
+
+    "temperatures": "High 25"
+
+}
+
+###
+GET  http://localhost:8000/api/v0/forecasts
+
+
+###
+
+GET http://localhost:8000/api/v0/forecast/?date_time_local=2021
+
+###
+
+POST http://localhost:8000/api/v0/upload
+
+Content-Type: multipart/form-data; boundary=<calculated when request is sent>
+
