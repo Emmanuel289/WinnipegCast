@@ -4,11 +4,11 @@ const WeeklyForecast = require('../models/weekly_forecast');
 
 const getRouter = async (req, res) =>{
 
-    let date  = req.query.date_time_local;
+    let date  = req.params.date_time_local;
     
     try{
         
-        const forecast = await WeeklyForecast.findOne(date);
+        const forecast = await WeeklyForecast.findByPk(date);
 
         if (!forecast){
 

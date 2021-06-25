@@ -5,19 +5,19 @@ POST http://localhost:8000/api/v0/forecasts
 Content-Type: application/json
 
 {
-    "date_time_local": 2023,
+    "date_time_local": 2024,
 
     "temperatures": "High 25"
 
 }
 
 ###
-GET  http://localhost:8000/api/v0/forecasts
+GET  http://localhost:8000/api/v0/forecasts/
 
 
 ###
 
-GET http://localhost:8000/api/v0/forecast/?date_time_local=2021
+GET http://localhost:8000/api/v0/forecast/2024
 
 ###
 
