@@ -1,8 +1,10 @@
-//Handler for getting a forecast by date
+//Handler for getting all forecasts or getting a forecast by date
 
 const WeeklyForecast = require('../models/weekly_forecast');
 
-const getRouter = async (req, res) =>{
+//Get a forecast by date
+
+const getByDate = async (req, res) =>{
 
     let date  = req.params.date_time_local;
     
@@ -31,6 +33,24 @@ const getRouter = async (req, res) =>{
 };
 
 
-module.exports = getRouter;
 
+// Get all forecasts
 
+const getAll = (req, res) => {
+    WeeklyForecast.findAll()
+      .then((data) => {
+        res.send(data);
+      })
+      .catch((err) => {
+        res.status(500).send({
+          message:
+            err.message || "Error encountered in retrieving data forecasts.",
+        });
+      });
+  };
+
+module.exports = {
+    getByDate,
+
+    getAll
+}
