@@ -8,11 +8,12 @@ const csv = require("fast-csv");
 //Upload handler
 
 const upload = async (req, res) => {
+
   try {
+    
     if (req.file == undefined) {
       return res.status(400).send("Please only upload data in csv format!");
     }
-
     let forecasts = [];
     let path = __basedir + "/backend/weather_data/" + req.file.filename;
 
