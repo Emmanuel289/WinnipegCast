@@ -5,9 +5,9 @@ POST http://localhost:8000/api/v0/forecasts
 Content-Type: application/json
 
 {
-    "date_time_local": 2069,
+    "date_time_local": "2029",
 
-    "temperatures": "High 26"
+    "temperatures": "High 35"
 
 }
 
@@ -17,11 +17,11 @@ GET  http://localhost:8000/api/v0/forecasts/
 
 ###
 
-GET http://localhost:8000/api/v0/forecast/2024
+GET http://localhost:8000/api/v0/forecast/?date_time_local=2028
 
 ###
 
 POST http://localhost:8000/api/v0/upload
 
-Content-Type: multipart/form-data; boundary=<calculated when request is sent>
-
+Content-Type: text/csv
+Content-Location: C:\Users\EMMIR_000\Desktop\WinCast\backend\weather_data\weatherstats_winnipeg_forecast_daily.csv
