@@ -6,15 +6,22 @@ const WeeklyForecast = require('../models/weekly_forecast');
 
 const getByDate = async (req, res) =>{
 
-    let date  = req.params.date_time_local;
+    let date  = req.query.date_time_local;
     
     try{
         
-        const forecast = await WeeklyForecast.findByPk(date);
+        const forecast = await WeeklyForecast.findAll({
+          where : {
+
+            date_time_local : date
+          }
+        });
 
         if (!forecast){
 
             res.status(404).send('The forecast for the specified date does not exist');
+
+            
         }
 
         else{
@@ -36,8 +43,8 @@ const getByDate = async (req, res) =>{
 
 // Get all forecasts
 
-const getAll = (req, res) => {
-    WeeklyForecast.findAll()
+const getAll =  async (req, res) => {
+    await WeeklyForecast.findAll()
       .then((data) => {
         res.send(data);
       })
