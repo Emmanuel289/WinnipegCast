@@ -34,37 +34,7 @@ try{
     console.error('Unable to connect to the database:',error);
 }
 
-//Create a new weekly forecast
 
-app.post('/api/v0/forecasts', 
-    async (req, res) => {
-    let currDate = req.body.date_time_local
-    let forecastTemps   = req.body.temperatures;
-
-    // check date is valid
-    if (!currDate) {
-        return res.status(400).send({ message: 'Date is required in format yyyy-mm-dd UCT format ' });
-    }
-
-    if(!forecastTemps){
-        
-        return res.status(400).send({message: 'Temperature forecast is required'});
-
-    }
-
-    const forecast = await new WeeklyForecast({
-            date_time_local: currDate,
-
-            temperatures: forecastTemps
-    });
-
-    const saved_forecast = await forecast.save();
-
-    res.status(201).send(saved_forecast);
-});
-
-
-// 
 
 //Test root endpoint
 app.get('/', (req, res)=>{
@@ -76,3 +46,4 @@ app.get('/', (req, res)=>{
 app.listen(port, () => {
   console.log(` Server is listening on port ${port}!`)
 });
+
