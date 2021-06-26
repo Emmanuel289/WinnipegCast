@@ -8,6 +8,10 @@ The application is split into three main parts:
 2. A BackEnd: an Express server which connects to a PostgreSQL database server and services the client-side requests.
 3. A PostgreSql database: a local PostgreSQl instance that stores the weather forecasts.
 
+## Source Code
+
+The source code of the application is available at https://github.com/Emmanuel289/WinCast.git
+
 
 ## Dependencies
 
@@ -56,3 +60,4 @@ Content-Type: application/json
 
 - An SQL engine was the choice of the database service because the weather forecasts are contained in tables and we might want to persist their storage.
 - The UI of the application is a skeleton in its present form and does not do much. It will be updated with presentation logic in the future.
+ 
