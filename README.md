@@ -4,7 +4,7 @@ WinCast is an application for visualizing the historical forecasts of the weathe
 The application is split into three main parts:
 1. A FrontEnd: an Angular web application that queries the rest API backend server by date and displays the data that returns from the server call
 2. A BackEnd: an Express server which connects to a PostgreSQL database server and services the client-side requests.
-3. A PostgreSql database: a local PostgreSQl instance that stores the weather forecasts.
+3. A PostgreSQL database: a local PostgreSQL instance that stores the weather forecasts.
 
 
 ## Dependencies
@@ -34,7 +34,7 @@ The application is split into three main parts:
 
 ### Querying the Weather Database for Forecasts
  - The `weekly_forecast.js` located inside the `backend/models/` folder contains the schema for defining and composing a weekly forecast into a table for storage in the database. 
- - The 'routes.rest' file contains a list of standard HTTP methods for querying the local server which forwards the requests to the database. For example, the following request adds a new record to the data set
+ - The `routes.rest` file contains a list of standard HTTP methods for querying the local server which forwards the requests to the database. For example, the following request adds a new record to the data set
  
  ``` POST http://localhost:8000/api/v0/forecasts 
 Content-Type: application/json
@@ -47,10 +47,10 @@ Content-Type: application/json
 }
 ```
 
- - [Postman] (https://www.postman.com/downloads/) can be used to upload a csv file of new datasets which creates new records or updates existing records in the database.
+ - [Postman](https://www.postman.com/downloads/) can be used to upload a csv file of new datasets which creates new records or updates existing records in the database.
 
 
 ### Design Considerations and Future Iterations:
 
-- An SQL engine was the choice of the database service because the weather forecasts are contained in tables and we might want to persist their storage.
-- The UI of the application is a skeleton in its present form and does not do much. It will be updated with presentation logic in the future.
+- PostgreSQL was the choice of the database engine because the weather forecasts are relational and we might want to persist their storage, instead of in-memory storage. Future iterations will introduce caching on the client side for more recent or frequently data and archival of older records in a cloud datastore like BigQuery. 
+- The user interface of the application is a skeleton in its present form and does not do much. It will be updated with a service that connects with the backend to display weather data to a user.
