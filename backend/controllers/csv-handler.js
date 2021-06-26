@@ -47,39 +47,7 @@ const upload = async (req, res) => {
   }
 };
 
+module.exports = {upload};
 
 
-/*
-const getForecasts = (req, res) => {
-  Forecasts.findAll()
-    .then((data) => {
-      res.send(data);
-    })
-    .catch((err) => {
-      res.status(500).send({
-        message:
-          err.message || "Error encountered in retrieving data forecasts.",
-      });
-    });
-};
-*/
 
-// Handler for getting available forecasts
-
-const getForecasts = (req, res) => {
-    WeeklyForecast.findAll()
-      .then((data) => {
-        res.send(data);
-      })
-      .catch((err) => {
-        res.status(500).send({
-          message:
-            err.message || "Error encountered in retrieving data forecasts.",
-        });
-      });
-  };
-
-module.exports = {
-  upload,
-  getForecasts
-};
