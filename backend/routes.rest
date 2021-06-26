@@ -5,9 +5,9 @@ POST http://localhost:8000/api/v0/forecasts
 Content-Type: application/json
 
 {
-    "date_time_local": 2024,
+    "date_time_local": 2069,
 
-    "temperatures": "High 25"
+    "temperatures": "High 26"
 
 }
 
