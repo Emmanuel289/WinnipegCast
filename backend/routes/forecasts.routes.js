@@ -16,11 +16,11 @@ let routes = (app) => {
 
     //Get a day's forecast
 
-    router.get('/forecast/:date', Getter.getByDate);
+    router.get('/forecast/', Getter.getByDate);
 
     //Add a new forecast
 
-    router.post('/forecasts', createForecast);
+    router.post('/forecasts/', createForecast);
     
     //Use router middleware in server
     
