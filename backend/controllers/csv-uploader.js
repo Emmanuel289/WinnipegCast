@@ -50,6 +50,8 @@ const uploadCSV = async  (req, res)=>{
         })
         .on("end", ()=>{
 
+            WeeklyForecast.create();
+
             WeeklyForecast.bulkCreate(record)
             .then(()=>{
                 res.status(200).send({
