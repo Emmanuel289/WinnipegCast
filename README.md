@@ -2,9 +2,9 @@
 WinCast is an application for visualizing the historical forecasts of the weather conditions in Winnipeg, Manitoba.
 
 The application is split into three main parts:
-1. A FrontEnd: an Angular web application that queries the rest API backend server by date and displays the data that returns from the server call
-2. A BackEnd: an Express server which connects to a PostgreSQL database server and services the client-side requests.
-3. A PostgreSQL database: a local PostgreSQL instance that stores the weather forecasts.
+1. An Angular client interface that queries a RESTful API backend server by date and displays the data that returns from the server call.
+2. A Node/Express server which connects to a PostgreSQL database and services the client-side requests.
+3. A PostgreSQL database that stores the weather forecasts.
 
 
 ## Dependencies
