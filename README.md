@@ -21,7 +21,7 @@ The application is split into three main parts:
 
 - [Nodemon](https://npmjs.com/package/nodemon): Nodemon is a tool that automatically restarts a Node.js application when file changes are detected.
 
-- [Pg](https://npmjs.com/package/pg): Pg is a PostgreSQL client for Node.js. [Pg-hstore](https://www.npmjs.com/package/pg-hstore) is a companion module for serializing and deserializing JSON data to hstore format.
+- [Pg](https://npmjs.com/package/pg): Pg is a PostgreSQL client for Node.js and [Pg-hstore](https://www.npmjs.com/package/pg-hstore) is a companion module for serializing and deserializing JSON data to hstore format.
 
 - [Angular](https://angular.io): Angular is the framework used for designing the user interface of the application.
 
