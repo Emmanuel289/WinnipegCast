@@ -51,7 +51,7 @@ Content-Type: application/json
 }
 ```
 
- - [Postman](https://www.postman.com/downloads/) can be used to upload a csv file of new datasets which creates new records or updates existing records in the database. The screenshot below shows the process of loading a file named "weatherstats_winnipeg_forecast_daily.csv" into the database using Postman:
+ - [Postman](https://www.postman.com/downloads/) can be used to upload a csv file of datasets to create a new bulk record in the database or to update an existing record. The screenshot below shows the process of uploading a file named "weatherstats_winnipeg_forecast_daily.csv" into the database using Postman:
 
 ![data_upload](https://user-images.githubusercontent.com/6232188/123557937-97ac2780-d78b-11eb-92fc-9d1c1b6bd213.PNG)
 
