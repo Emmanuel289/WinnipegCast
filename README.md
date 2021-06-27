@@ -53,13 +53,13 @@ Content-Type: application/json
 
  - [Postman](https://www.postman.com/downloads/) can be used to upload a csv file of new datasets which creates new records or updates existing records in the database. The screenshot below shows the process of loading a file named "weatherstats_winnipeg_forecast_daily.csv" into the database using Postman:
 
+![data_upload](https://user-images.githubusercontent.com/6232188/123557937-97ac2780-d78b-11eb-92fc-9d1c1b6bd213.PNG)
 
+![data_upload2](https://user-images.githubusercontent.com/6232188/123557939-9d097200-d78b-11eb-890d-8c341e0897db.PNG)
 
+[Postbird] is a PostgreSQL client that can be used to connect to the PostgreSQL instance and view the uploaded dataset as shown below: 
 
-
-
-[Postbird] is a PostgreSQL client that can be used to connect to the PostgreSQL instance and view the uploaded dataset: 
-
+![data_upload3](https://user-images.githubusercontent.com/6232188/123557967-ba3e4080-d78b-11eb-8e7f-299c072b18a9.PNG)
 
 ### Design Considerations and Future Iterations:
 
