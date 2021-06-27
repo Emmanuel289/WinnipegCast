@@ -58,6 +58,9 @@ Content-Type: application/json
 
 
 
+[Postbird] is a PostgreSQL client that can be used to connect to the PostgreSQL instance and view the uploaded dataset: 
+
+
 ### Design Considerations and Future Iterations:
 
 - PostgreSQL was the choice of the database engine because the weather forecasts are relational and we might want to persist their storage, instead of in-memory storage. Future iterations will introduce caching on the client side for more recent or frequently data and archival of older records in a cloud datastore like BigQuery. 
