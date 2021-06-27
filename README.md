@@ -11,15 +11,19 @@ The application is split into three main parts:
 
 - [Node.js](https://nodejs.org/en): The Node.js distribution comes prepackaged with a Node Package Manager (NPM) client which is used to install required modules and    dependencies for the application.
 
-- [Express](https://www.npmjs.com/package/express): Express is a lightweight Node.js web application framework for building web and mobile applications.
+- [Express](https://npmjs.com/package/express): Express is a lightweight Node.js web application framework for building web and mobile applications.
 
 - [Sequelize](https://sequelize.org/) is an ORM for SQL databases.
 
-- [Dotenv](https://www.npmjs.com/package/dotenv): Dotenv is a module that loads environment variables from a .env file into a local or cloud environment.
+- [Dotenv](https://npmjs.com/package/dotenv): Dotenv is a module that loads environment variables from a .env file into a local or cloud environment.
 
-- [Multer](https://www.npmjs.com/search?q=multer): Middleware for handling forms and tables.
+- [Multer](https://npmjs.com/search?q=multer): Middleware for handling forms and tables.
 
-- [Nodemon](https://www.npmjs.com/package/nodemon): Nodemon is a tool that automatically restarts a Node.js application when file changes are detected.
+- [Nodemon](https://npmjs.com/package/nodemon): Nodemon is a tool that automatically restarts a Node.js application when file changes are detected.
+
+- [Pg] (https://npmjs.com/package/pg): Pg is a PostgreSQL client for Node.js. [Pg-hstore](https://www.npmjs.com/package/pg-hstore) is a companion module for serializing and deserializing JSON data to hstore format.
+
+- [Angular](https://angular.io): Angular is the framework used for designing the user interface of the application.
 
 ## Installation
 
@@ -47,7 +51,11 @@ Content-Type: application/json
 }
 ```
 
- - [Postman](https://www.postman.com/downloads/) can be used to upload a csv file of new datasets which creates new records or updates existing records in the database.
+ - [Postman](https://www.postman.com/downloads/) can be used to upload a csv file of new datasets which creates new records or updates existing records in the database. The screenshot below shows the process of loading a file named "weatherstats_winnipeg_forecast_daily.csv" into the database using Postman:
+
+
+
+
 
 
 ### Design Considerations and Future Iterations:
