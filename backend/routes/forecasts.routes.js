@@ -1,14 +1,17 @@
 const express = require("express");
 const router = express.Router();
-const CsvHandler = require("../controllers/csv-handler");
 const Getter = require("../controllers/get-handler");
+const CSVUploader = require("../controllers/csv-uploader");
 const createForecast  = require("../controllers/post-handler");
-const upload = require("../middleware/upload");
+//const upload = require("../middleware/upload");
 
 let routes = (app) => {
-    
-    //Upload data set 
-    router.post('/upload', upload.single("file"), CsvHandler.upload);
+ 
+
+    //Upload a file
+
+    router.post('/upload', CSVUploader.upload.single("file"), CSVUploader.uploadCSV)
+
     
     //Get all existing forecasts
     

@@ -9,8 +9,7 @@ WeeklyForecast.init({
  
 
   date_time_local: {
-    type: DataTypes.STRING,
-    allowNull: false
+    type: DataTypes.TEXT,
   },
 
   unixtime:{
@@ -67,7 +66,6 @@ WeeklyForecast.init({
   temperatures:{
 
     type: DataTypes.STRING,
-    allowNull : false
   
   },
 
