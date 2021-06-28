@@ -33,7 +33,7 @@ The application is split into three main parts:
 
 - Navigate to the ``` frontend/``` folder and execute ``` npm install && ng serve --open ``` to install the dependencies for the web application and start the frontend service.
 
-- Start a postgres client using the ```psql ``` startup shell and connect to the database (Optional). 
+- (Optional) Start a postgres client using the ```psql ``` startup shell and connect to the database after entering the required configuration parameters. You can also manage existing connections using the [pgAdmin](https://www.pgadmin.org/docs/pgadmin4/development/connecting.html) management console. 
 
 
 ### Querying the Weather Database for Forecasts
@@ -57,7 +57,7 @@ Content-Type: application/json
 
 ![data_upload2](https://user-images.githubusercontent.com/6232188/123557939-9d097200-d78b-11eb-890d-8c341e0897db.PNG)
 
-[Postbird] is a PostgreSQL client that can be used to connect to the PostgreSQL instance and view the uploaded dataset as shown below: 
+[Postbird](https://github.com/Paxa/postbird) is a PostgreSQL client that can be used to connect to the PostgreSQL instance and view the uploaded dataset as shown below: 
 
 ![data_upload3](https://user-images.githubusercontent.com/6232188/123557967-ba3e4080-d78b-11eb-8e7f-299c072b18a9.PNG)
 
