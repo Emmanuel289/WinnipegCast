@@ -17,7 +17,7 @@ The application is split into three main parts:
 
 - [Dotenv](https://npmjs.com/package/dotenv) is a module that loads environment variables from a .env file into a local or cloud environment.
 
-- [Multer](https://npmjs.com/search?q=multer) is a middleware for handling forms and tables.
+- [Multer](https://npmjs.com/search?q=multer) is a middleware for handling forms and multi-part data.
 
 - [Nodemon](https://npmjs.com/package/nodemon) is a tool that automatically restarts a Node.js application when file changes are detected.
 
