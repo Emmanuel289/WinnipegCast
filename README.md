@@ -38,7 +38,7 @@ The application is split into three main parts:
 
 ### Querying the Weather Database for Forecasts
  - The `weekly_forecast.js` located inside the `backend/models/` folder contains the schema for defining and composing a weekly forecast into a table for storage in the database. 
- - The `routes.rest` file contains a list of standard HTTP methods for querying the local server which forwards the requests to the database. For example, the following request adds a new record to the data set
+ - The `routes.rest` file contains a list of standard HTTP methods for querying the local server which forwards the requests to the database. For example, the following request adds a new record to the database:
  
  ``` POST http://localhost:8000/api/v0/forecasts 
 Content-Type: application/json
