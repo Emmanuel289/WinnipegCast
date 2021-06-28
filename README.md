@@ -29,7 +29,7 @@ The application is split into three main parts:
 
 - Clone the source code for the application at https://github.com/Emmanuel289/WinCast.git.
 
-- Navigate to the ```backend/ ``` folder within the folder tree and execute ``` npm install && npm start ``` to install the dependencies for the backend and start the backend service.
+- Navigate to the ```backend/ ```  folder within the folder tree and execute ``` npm install && npm start ``` to install the dependencies for the backend and start the backend service.
 
 - Navigate to the ``` frontend/``` folder and execute ``` npm install && ng serve --open ``` to install the dependencies for the web application and start the frontend service.
 
