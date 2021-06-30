@@ -63,5 +63,5 @@ Content-Type: application/json
 
 ### Design Considerations and Future Iterations:
 
-- PostgreSQL was the choice of the database engine because the weather forecasts are relational and we might want to persist their storage, instead of in-memory storage. Future iterations will introduce caching on the client side for more recent or frequently data and archival of older records in a cloud datastore like BigQuery. 
+- PostgreSQL was the choice of the database engine because the weather forecasts are relational and we might want to persist their storage, instead of having in-memory storage. Future iterations will introduce caching on the client side for more recent or frequently accessed data and archival of older records in a cloud datastore like BigQuery or S3. 
 - The user interface of the application is a skeleton in its present form and does not do much. It will be updated with a service that connects with the backend to display weather data to a user.
