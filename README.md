@@ -1,5 +1,5 @@
 ## Overview
-WinCast is an application for visualizing the historical forecasts of the weather conditions in Winnipeg, Manitoba.
+WinnipegCast is an application for visualizing the historical forecasts of the weather conditions in Winnipeg, Manitoba.
 
 The application is split into three main parts:
 1. An Angular client interface that queries a RESTful API backend server by date and displays the data that returns from the server call.
