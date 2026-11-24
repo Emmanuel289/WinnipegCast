@@ -13,7 +13,7 @@ const createForecast =  async (req, res)=>{
 
         if(!currDate || !forecastTemps){
 
-            res.status(400).send('Date and temperature format are required');
+            return res.status(400).send('Date and temperature format are required');
 
 
         }

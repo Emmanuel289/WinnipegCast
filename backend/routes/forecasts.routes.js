@@ -17,6 +17,10 @@ let routes = (app) => {
     
     router.get('/forecasts', Getter.getAll);
 
+    //Get the first and last forecast dates
+
+    router.get('/forecasts/range', Getter.getRange);
+
     //Get a day's forecast
 
     router.get('/forecast/', Getter.getByDate);

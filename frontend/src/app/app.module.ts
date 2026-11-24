@@ -1,22 +1,30 @@
 import { NgModule } from '@angular/core';
+import { provideHttpClient } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import {MatTableModule} from '@angular/material/table';
+import { provideNativeDateAdapter } from '@angular/material/core';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ForecastComponent } from './forecast/forecast.component';
+import { MATERIAL_MODULES } from './material';
 
 
 @NgModule({
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MatTableModule
-    
+    FormsModule,
+    ...MATERIAL_MODULES
+
   ],
   declarations: [
     AppComponent,
     ForecastComponent
+  ],
+  providers: [
+    provideHttpClient(),
+    provideNativeDateAdapter()
   ],
   bootstrap: [
     AppComponent

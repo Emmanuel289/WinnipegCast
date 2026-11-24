@@ -85,11 +85,7 @@ WeeklyForecast.init({
   uv:{
 
     type: DataTypes.STRING,
-    
-  },
 
-  cloudPrecip: {
-    type: DataTypes.STRING,
   }
 }, {
   
