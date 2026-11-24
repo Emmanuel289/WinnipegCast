@@ -1,34 +1,70 @@
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+@let current = state();
 
-    <!--- Note that these columns can be defined in any order.
-          The actual rendered columns are set as a property on the row definition" -->
-  
-    <!-- Position Column -->
-    <ng-container matColumnDef="position">
-      <th mat-header-cell *matHeaderCellDef> No. </th>
-      <td mat-cell *matCellDef="let element"> {{element.position}} </td>
-    </ng-container>
-  
-    <!-- Name Column -->
-    <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef> Name </th>
-      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-    </ng-container>
-  
-    <!-- Weight Column -->
-    <ng-container matColumnDef="weight">
-      <th mat-header-cell *matHeaderCellDef> Weight </th>
-      <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
-    </ng-container>
-  
-    <!-- Symbol Column -->
-    <ng-container matColumnDef="symbol">
-      <th mat-header-cell *matHeaderCellDef> Symbol </th>
-      <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
-    </ng-container>
-  
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
-  
-  
+<mat-card appearance="outlined" class="forecast-card">
+  <mat-card-header>
+    <mat-card-title>Forecast</mat-card-title>
+    @if (current.status === 'loaded') {
+      <mat-card-subtitle class="forecast-status">Forecast issued {{current.rows[0]?.date_time_local}}</mat-card-subtitle>
+    }
+  </mat-card-header>
+
+  <mat-card-content>
+  @if (current.status === 'loading') {
+    <mat-progress-bar mode="indeterminate" aria-label="Loading forecast"></mat-progress-bar>
+  } @else if (current.status === 'not-found') {
+    <p class="forecast-status status-message">
+      <mat-icon aria-hidden="true">event_busy</mat-icon>
+      No forecast was issued on {{date()}}.
+    </p>
+  } @else if (current.status === 'error') {
+    <p class="forecast-status status-message error">
+      <mat-icon aria-hidden="true">error</mat-icon>
+      Could not load the forecast. Is the backend running?
+    </p>
+  } @else if (current.status === 'loaded') {
+    <div class="table-scroll">
+    <table mat-table [dataSource]="current.rows">
+
+      <!-- Period Column -->
+      <ng-container matColumnDef="PERIOD">
+        <th mat-header-cell *matHeaderCellDef> Period </th>
+        <td mat-cell *matCellDef="let element"> {{element.period_string}} </td>
+      </ng-container>
+
+      <!-- Conditions Column -->
+      <ng-container matColumnDef="CONDITIONS">
+        <th mat-header-cell *matHeaderCellDef> Conditions </th>
+        <td mat-cell *matCellDef="let element"> {{element.cloudprecip}} </td>
+      </ng-container>
+
+      <!-- Temperature Column -->
+      <ng-container matColumnDef="TEMPERATURE">
+        <th mat-header-cell *matHeaderCellDef> Temperature </th>
+        <td mat-cell *matCellDef="let element"> {{element.temperatures}} </td>
+      </ng-container>
+
+      <!-- Winds Column -->
+      <ng-container matColumnDef="WINDS">
+        <th mat-header-cell *matHeaderCellDef> Winds </th>
+        <td mat-cell *matCellDef="let element"> {{element.winds}} </td>
+      </ng-container>
+
+      <!-- Precipitation Column -->
+      <ng-container matColumnDef="PRECIPITATION">
+        <th mat-header-cell *matHeaderCellDef> Precipitation </th>
+        <td mat-cell *matCellDef="let element"> {{element.precipitation}} </td>
+      </ng-container>
+
+      <!-- UV Column -->
+      <ng-container matColumnDef="UV">
+        <th mat-header-cell *matHeaderCellDef> UV </th>
+        <td mat-cell *matCellDef="let element"> {{element.uv}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    </div>
+  }
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,58 @@
+.app-toolbar {
+  gap: 12px;
+  background: var(--mat-sys-primary);
+  color: var(--mat-sys-on-primary);
+}
+
+.app-title {
+  margin: 0;
+  font: var(--mat-sys-title-large);
+}
+
+.app-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.intro {
+  margin: 8px 0 0;
+  color: var(--mat-sys-on-surface-variant);
+}
+
+.search-form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.date-field {
+  flex: 1 1 260px;
+  max-width: 360px;
+}
+
+/* Lines the button up with the outlined field (56px tall) rather than with its hint */
+.search-form button {
+  height: 56px;
+}
+
+.status-message {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.status-message.error {
+  color: var(--mat-sys-error);
+}
+
+.data-source {
+  color: var(--mat-sys-on-surface-variant);
+  font: var(--mat-sys-body-small);
+  text-align: center;
+}

@@ -1,14 +1,51 @@
-<h1>{{title}}</h1>
-<hr>
-<h2>WinCast displays weekly forecasts in Manitoba. Users can view forecasts for a given day or for a given period of time on any given day. </h2>
+<mat-toolbar class="app-toolbar">
+  <mat-icon aria-hidden="true">wb_cloudy</mat-icon>
+  <h1 class="app-title">{{title}}</h1>
+</mat-toolbar>
 
-<form>
-  <label for="fname">Enter a date in the textbox below:</label>
-  <input type="text" id="fname" name="fname" value="Enter a date in the format yyyy-mmm-dd"><br><br>
-  <input type="submit" value="Submit">
-</form>
+<main class="app-content">
+  <mat-card appearance="outlined" class="search-card">
+    <mat-card-header>
+      <mat-card-title>Historical forecasts for Winnipeg</mat-card-title>
+    </mat-card-header>
 
-<app-forecast></app-forecast>
+    <mat-card-content>
+      <p class="intro">WinCast displays weekly forecasts in Manitoba. Users can view forecasts for a given day or for a given period of time on any given day.</p>
+
+      @if (range(); as range) {
+        <form class="search-form" (ngSubmit)="search()">
+          <mat-form-field appearance="outline" class="date-field">
+            <mat-label>Forecast date</mat-label>
+            <input matInput [matDatepicker]="picker" name="forecastDate" [(ngModel)]="selectedDate" [min]="minDate()" [max]="maxDate()" required>
+            <mat-hint>{{range.first}} to {{range.last}}</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+
+          <button mat-flat-button type="submit">
+            <mat-icon>search</mat-icon>
+            Search
+          </button>
+        </form>
+      } @else if (rangeError()) {
+        <p class="status-message error">
+          <mat-icon aria-hidden="true">error</mat-icon>
+          Could not load the available forecast dates. Is the backend running?
+        </p>
+      } @else {
+        <mat-progress-bar mode="indeterminate" aria-label="Loading available forecast dates"></mat-progress-bar>
+      }
+    </mat-card-content>
+  </mat-card>
+
+  @if (range()) {
+    <app-forecast [date]="searchedDate()"></app-forecast>
+  }
+
+  <footer class="data-source">
+    Forecast data: weatherstats.ca based on Environment and Climate Change Canada data.
+  </footer>
+</main>
 <!-- 
 Copyright Google LLC. All Rights Reserved.
 Use of this source code is governed by an MIT-style license that

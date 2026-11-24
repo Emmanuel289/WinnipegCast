@@ -1,39 +1,54 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
+import { HttpErrorResponse } from '@angular/common/http';
+import { toObservable, toSignal } from '@angular/core/rxjs-interop';
+import { Observable, catchError, map, of, startWith, switchMap } from 'rxjs';
 
+import { ForeCast, ForecastService } from './forecast.service';
 
-export interface ForeCast {
-  date: string;
-  maxTemp: number;
-  minTemp: number;
-  humidity: string;
-}
-
-const DATE_DATA: ForeCast[] = [
-  {date: '2021-25-06', maxTemp: 26, minTemp: -10, humidity: "60%"},
-  {date: '2021-24-06', maxTemp: 26, minTemp: -10, humidity: "60%"},
-  {date: '2021-23-06', maxTemp: 26, minTemp: -10, humidity: "60%"},
-  {date: '2021-22-06', maxTemp: 26, minTemp: -10, humidity: "60%"},
-  {date: '2021-21-06', maxTemp: 26, minTemp: -10, humidity: "60%"},
-
-  {date: '2021-20-06', maxTemp: 26, minTemp: -10, humidity: "60%"},
-
-  {date: '2021-19-06', maxTemp: 26, minTemp: -10, humidity: "60%"},
-];
+export type ForecastState =
+  | { status: 'idle' }
+  | { status: 'loading' }
+  | { status: 'loaded'; rows: ForeCast[] }
+  | { status: 'not-found' }
+  | { status: 'error' };
 
 
 @Component({
   selector: 'app-forecast',
+  standalone: false,
   templateUrl: './forecast.component.html',
   styleUrls: ['./forecast.component.css']
 })
-export class ForecastComponent implements OnInit {
+export class ForecastComponent {
 
-  displayedColumns: string[] = ['DATE', 'MAXIMUM TEMP', 'MINIMUM TEMP', 'HUMIDITY'];
-  dataSource = DATE_DATA;
+  private forecastService = inject(ForecastService);
 
-  constructor() { }
+  date = input<string>('');
 
-  ngOnInit(): void {
+  displayedColumns: string[] = ['PERIOD', 'CONDITIONS', 'TEMPERATURE', 'WINDS', 'PRECIPITATION', 'UV'];
+
+  // switchMap drops a still-pending request when a new date is searched
+  state = toSignal(
+    toObservable(this.date).pipe(switchMap(date => this.load(date))),
+    { initialValue: { status: 'idle' } as ForecastState }
+  );
+
+  private load(date: string): Observable<ForecastState> {
+    if (!date) {
+      return of({ status: 'idle' });
+    }
+
+    return this.forecastService.getByDate(date).pipe(
+      map((rows): ForecastState => ({ status: 'loaded', rows })),
+      catchError((error: HttpErrorResponse) => {
+        if (error.status === 404) {
+          return of<ForecastState>({ status: 'not-found' });
+        }
+        console.error('Failed to load the forecast for ' + date, error);
+        return of<ForecastState>({ status: 'error' });
+      }),
+      startWith<ForecastState>({ status: 'loading' })
+    );
   }
 
 }
